@@ -1,0 +1,16 @@
+<div
+  class="dialog"
+  [ngStyle]="getOverlayStyles()"
+  [@animation]="animationType + '-' + animationState"
+  (@animation.done)="animationDone()"
+>
+  <div class="header" *ngIf="dialogConfig?.withHeader">
+    <p>{{header}}</p>
+    <span class="icon close-icon" (click)="closeDialog()"></span>
+  </div>
+
+  <div class="close-wrapper" *ngIf="dialogConfig?.withCloseIcon">
+    <span class="icon close-icon" (click)="closeDialog()"></span>
+  </div>
+  <ng-content></ng-content>
+</div>
